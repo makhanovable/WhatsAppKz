@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "983155464231",
+    "project_id": "whatsapp-kz",
+    "storage_bucket": "whatsapp-kz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983155464231:android:599e4d8391ec588f3a9602",
+        "android_client_info": {
+          "package_name": "kz.whatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983155464231-juhendcobsmnsnhs94vdq09l0047s8bo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfJvkUPTgyj-wp6aIwdR9JEsshGEKYldU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983155464231-juhendcobsmnsnhs94vdq09l0047s8bo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
