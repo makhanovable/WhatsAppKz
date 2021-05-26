@@ -55,23 +55,23 @@ class FriendlyMessageAdapter(
     inner class MessageViewHolder(private val view: View) : ViewHolder(view) {
         fun bind(item: FriendlyMessage) {
             view.messageTextView.text = item.text
-            setTextColor(item.name, view.messageTextView)
+            setTextColor(item.name, view.ccc)
 
             view.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
             if (item.photoUrl != null) {
                 loadImageIntoView(view.messengerImageView, item.photoUrl!!)
             } else {
-                view.messengerImageView.setImageResource(R.drawable.ic_launcher_background)
+//                view.messengerImageView.setImageResource(R.drawable.ic_launcher_background)
             }
         }
 
-        private fun setTextColor(userName: String?, textView: TextView) {
+        private fun setTextColor(userName: String?, textView: View) {
             if (userName != ANONYMOUS && currentUserName == userName && userName != null) {
                 textView.setBackgroundResource(R.drawable.rounded_message_blue)
-                textView.setTextColor(Color.WHITE)
+//                textView.setTextColor(Color.WHITE)
             } else {
                 textView.setBackgroundResource(R.drawable.rounded_message_gray)
-                textView.setTextColor(Color.BLACK)
+//                textView.setTextColor(Color.BLACK)
             }
         }
     }
@@ -85,7 +85,7 @@ class FriendlyMessageAdapter(
             if (item.photoUrl != null) {
                 loadImageIntoView(view.messengerImageView, item.photoUrl!!)
             } else {
-                view.messengerImageView.setImageResource(R.drawable.ic_launcher_background)
+//                view.messengerImageView.setImageResource(R.drawable.ic_launcher_background)
             }
         }
     }

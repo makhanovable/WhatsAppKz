@@ -96,12 +96,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         // When the image button is clicked, launch the image picker
-        addMessageImageView.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.addCategory(Intent.CATEGORY_OPENABLE)
-            intent.type = "image/*"
-            startActivityForResult(intent, REQUEST_IMAGE)
-        }
+//        addMessageImageView.setOnClickListener {
+//            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+//            intent.addCategory(Intent.CATEGORY_OPENABLE)
+//            intent.type = "image/*"
+//            startActivityForResult(intent, REQUEST_IMAGE)
+//        }
     }
 
     public override fun onStart() {

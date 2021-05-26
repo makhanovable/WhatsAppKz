@@ -19,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 import kz.whatsapp.R
 
 import kotlinx.android.synthetic.main.activity_sign_in.*
+import kz.whatsapp.ui.tabs.TabsActivity
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var signInClient: GoogleSignInClient
@@ -46,6 +47,13 @@ class SignInActivity : AppCompatActivity() {
             .build()
         signInClient = GoogleSignIn.getClient(this, gso)
         auth = Firebase.auth
+
+        if (auth.currentUser != null) {
+            // Not signed in, launch the Sign In activity
+            startActivity(Intent(this, TabsActivity::class.java))
+            finish()
+            return
+        }
     }
 
     private fun signIn() {
@@ -61,7 +69,7 @@ class SignInActivity : AppCompatActivity() {
                 // If sign in succeeds the auth state listener will be notified and logic to
                 // handle the signed in user can be handled in the listener.
                 Log.d(TAG, "signInWithCredential:success")
-                startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                startActivity(Intent(this@SignInActivity, TabsActivity::class.java))
                 finish()
             }
             .addOnFailureListener(this) { e -> // If sign in fails, display a message to the user.

@@ -3,6 +3,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#f1f1f1"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -10,16 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/chuck_colorAccent"
         android:orientation="horizontal"
         android:paddingHorizontal="10dp">
 
-        <ImageView
-            android:id="@+id/addMessageImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            ads:srcCompat="@drawable/outline_add_photo_alternate_24" />
 
         <EditText
             android:id="@+id/messageEditText"
