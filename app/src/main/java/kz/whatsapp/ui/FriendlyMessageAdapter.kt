@@ -31,21 +31,13 @@ class FriendlyMessageAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return if (viewType == VIEW_TYPE_TEXT) {
-            val view = inflater.inflate(R.layout.message, parent, false)
-            MessageViewHolder(view)
-        } else {
-            val view = inflater.inflate(R.layout.image_message, parent, false)
-            ImageMessageViewHolder(view)
-        }
+        val view = inflater.inflate(R.layout.message, parent, false)
+        return MessageViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: FriendlyMessage) {
-        if (options.snapshots[position].text != null) {
-            (holder as MessageViewHolder).bind(model)
-        } else {
-            (holder as ImageMessageViewHolder).bind(model)
-        }
+        (holder as MessageViewHolder).bind(model)
+
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -54,7 +46,7 @@ class FriendlyMessageAdapter(
 
     inner class MessageViewHolder(private val view: View) : ViewHolder(view) {
         fun bind(item: FriendlyMessage) {
-            view.messageTextView.text = item.text
+            view.messageTextView.text = item.text.toString()
             setTextColor(item.name, view.ccc)
 
             view.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
@@ -76,19 +68,7 @@ class FriendlyMessageAdapter(
         }
     }
 
-    inner class ImageMessageViewHolder(private val view: View) :
-        ViewHolder(view) {
-        fun bind(item: FriendlyMessage) {
-            loadImageIntoView(view.messageImageView, item.imageUrl!!)
 
-            view.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
-            if (item.photoUrl != null) {
-                loadImageIntoView(view.messengerImageView, item.photoUrl!!)
-            } else {
-//                view.messengerImageView.setImageResource(R.drawable.ic_launcher_background)
-            }
-        }
-    }
 
     private fun loadImageIntoView(view: ImageView, url: String) {
         if (url.startsWith("gs://")) {

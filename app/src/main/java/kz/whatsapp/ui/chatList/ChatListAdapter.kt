@@ -21,6 +21,7 @@ import kz.whatsapp.ui.MainActivity
 import kz.whatsapp.ui.model.FriendlyMessage
 
 class ChatListAdapter(
+    private val items: List<ChatItem>,
     private val pressed: () -> Unit
 ) : RecyclerView.Adapter<ChatListAdapter.ChatListViewHolder>() {
 
@@ -30,12 +31,17 @@ class ChatListAdapter(
         return ChatListViewHolder(view)
     }
 
-    override fun getItemCount() = 2
+    override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: ChatListViewHolder, position: Int) {
         holder.itemView.cont.setOnClickListener {
             pressed.invoke()
         }
+        holder.itemView.name.text = items[position].name
+        holder.itemView.lastMsg.text = items[position].lastMsg
+        holder.itemView.date.text = items[position].date
+
+        Picasso.get().load(items[position].image).into(holder.itemView.image)
     }
 
 

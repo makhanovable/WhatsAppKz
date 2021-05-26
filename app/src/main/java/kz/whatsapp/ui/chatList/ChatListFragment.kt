@@ -21,7 +21,22 @@ class ChatListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        chats_list.adapter = ChatListAdapter() {
+        val list = arrayListOf(
+            ChatItem(
+                image = "https://lh3.googleusercontent.com/a/AATXAJxnf_l8M19WlHQQ64lVkpXpFznL9PwwV369GX3i=s96-c",
+                name = "Madiyar Makhanov",
+                lastMsg = "Привет",
+                date = "Только что"
+            ),
+            ChatItem(
+                image = "https://lh3.googleusercontent.com/a/AATXAJzrddw6yzYEf-PauBM6JEB38fyP1nAwCRcsC2WB=s96-c",
+                name = "Aiya Talapkaliyeva",
+                lastMsg = "Скинь апк",
+                date = "Вчера"
+            )
+        )
+
+        chats_list.adapter = ChatListAdapter(list) {
             startActivity(Intent(requireContext(), MainActivity::class.java))
         }
     }
